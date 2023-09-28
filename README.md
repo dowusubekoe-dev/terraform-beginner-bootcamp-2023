@@ -208,6 +208,7 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 
 If we want to automatically approve, an apply we can provide the auto approve flag eg. `terraform apply --auto-approve`
 
+
 #### Terraform Destroy
 
 `terraform destroy`
@@ -235,6 +236,7 @@ If you lose this file, you lose knowning the state of your infrastructure.
 #### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers.
+
 
 ## Issues with Terraform Cloud Login and Gitpos Workspaces
 
@@ -264,3 +266,4 @@ Provide the following code  (replace your token in the file):
 ```
 
 We have automated this workaround with the following bash script [bin/generate_tfrc/credentials](bin./generate_tfrc_credentials)
+
