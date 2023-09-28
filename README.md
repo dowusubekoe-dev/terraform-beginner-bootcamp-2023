@@ -208,6 +208,13 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 
 If we want to automatically approve, an apply we can provide the auto approve flag eg. `terraform apply --auto-approve`
 
+
+#### Terraform Destroy
+
+`terraform destroy`
+This will destroy resources. You can also use the auto approve flag to skip the prompt.
+eg. `terraform apply --auto-approve`
+
 #### Terraform Lock Files
 
 `.terraform.lock.hcl` contains the locked versioning for the providers or modulues that should be used with this project.
@@ -229,3 +236,34 @@ If you lose this file, you lose knowning the state of your infrastructure.
 #### Terraform Directory
 
 `.terraform` directory contains binaries of terraform providers.
+
+
+## Issues with Terraform Cloud Login and Gitpos Workspaces
+
+When attempting to run `terraform login` it will launch a bash WYSIWYUG view to generate a token. However, it does not work as expected in Gitpod VSCode in the browser.
+The workaround is to manually generate a token in Terraform Cloud.
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Then create the file manually here: 
+
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+Provide the following code  (replace your token in the file):
+
+```json
+{
+    "credentials": {
+        "app.terraform.io": {
+            "token": "TOKEN-TERRAFORM-CLOUD-TOKEN"
+        }
+    }
+}
+```
+
+We have automated this workaround with the following bash script [bin/generate_tfrc/credentials](bin./generate_tfrc_credentials)
+
