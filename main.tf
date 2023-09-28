@@ -1,13 +1,4 @@
 terraform {
-  #backend "remote" {
-  #  hostname = "app.terraform.io"
-  #  organization = "dowusubekoe-dev"
-
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
-
 cloud {
     organization = "dowusubekoe-dev"
     workspaces {
@@ -22,13 +13,17 @@ cloud {
     }
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "5.16.2"
     }
   }
 }
 
-provider "random" {
-  # Configuration options
+# provider "random" {
+#   # Configuration options
+# }
+
+provider "aws" {
+  region = "us-east-1"  # Set your desired AWS region
 }
 
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
