@@ -208,7 +208,6 @@ This will run a plan and pass the changeset to be executed by terraform. Apply s
 
 If we want to automatically approve, an apply we can provide the auto approve flag eg. `terraform apply --auto-approve`
 
-
 #### Terraform Destroy
 
 `terraform destroy`
