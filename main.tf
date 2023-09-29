@@ -31,7 +31,6 @@ output "random_bucket_name_name" {
       version = "5.16.2"
     }
   }
-}
 
 # provider "random" {
 #   # Configuration options
