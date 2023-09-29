@@ -1,5 +1,5 @@
 terraform {
-  
+
   cloud {
     organization = "dowusubekoe-dev"
     workspaces {
@@ -19,6 +19,9 @@ terraform {
 }
 
 provider "aws" {
+
+  region = "us-east-1"
+
 }
 provider "random" {
   # Configuration options
@@ -34,8 +37,10 @@ resource "random_string" "bucket_name" {
 
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 resource "aws_s3_bucket" "example" {
-  #Bucket Naming Rules
-  #https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
+
+  # Bucket Naming Rules
+
+  # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
   bucket = random_string.bucket_name.result
 }
 
