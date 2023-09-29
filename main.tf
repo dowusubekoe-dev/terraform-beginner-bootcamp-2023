@@ -1,11 +1,11 @@
 terraform {
 
-  cloud {
-    organization = "dorbsyfx_dev"
-    workspaces {
-      name = "terra-house-1"
-    }
-  }
+ # cloud {
+ #  organization = "dorbsyfx_dev"
+ #   workspaces {
+ #     name = "terra-house-1"
+ #   }
+ # }
   required_providers {
     random = {
       source  = "hashicorp/random"
@@ -19,7 +19,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1"
+  # Configuration options
 }
 provider "random" {
   # Configuration options
@@ -37,7 +37,6 @@ resource "random_string" "bucket_name" {
 resource "aws_s3_bucket" "example" {
 
   # Bucket Naming Rules
-
   # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html?icmpid=docs_amazons3_console
   bucket = random_string.bucket_name.result
 }
