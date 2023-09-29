@@ -23,9 +23,9 @@ provider "aws" {
   region = "us-east-1"
 
 }
-provider "random" {
+# provider "random" {
   # Configuration options
-}
+# }
 
 # https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string
 resource "random_string" "bucket_name" {
