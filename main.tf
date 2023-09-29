@@ -6,9 +6,15 @@ terraform {
     }
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "5.16.2"
     }
   }
+}
+
+provider "aws" {
+  # Configuration options
+  region = "us-east-1"
+  
 }
 
 provider "random" {
@@ -19,7 +25,7 @@ provider "random" {
 resource "random_string" "bucket_name" {
   lower = true
   upper = false
-  length  = 32
+  length  = 16
   special = false
 }
 
