@@ -9,7 +9,7 @@ terraform {
   #}
 
 cloud {
-    organization = "dowusubekoe-dev"
+    organization = "dorbsyfx_dev"
     workspaces {
       name = "terra-house-1"
     }
