@@ -235,7 +235,7 @@ If you lose this file, you lose knowning the state of your infrastructure.
 
 `.terraform` directory contains binaries of terraform providers.
 
-## Issues with Terraform Cloud Login and Gitpos Workspaces
+## Issues with Terraform Cloud Login and Gitpod Workspaces
 
 When attempting to run `terraform login` it will launch a bash WYSIWYUG view to generate a token. However, it does not work as expected in Gitpod VSCode in the browser.
 The workaround is to manually generate a token in Terraform Cloud.

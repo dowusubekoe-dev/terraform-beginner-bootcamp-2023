@@ -1,4 +1,10 @@
 terraform {
+  cloud {
+    organization = "dorbsyfx_dev"
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
   required_providers {
     random = {
       source  = "hashicorp/random"
@@ -13,6 +19,7 @@ terraform {
 
 provider "aws" {
   # Configuration options
+  region = "us-east-1"
 }
 provider "random" {
   # Configuration options
