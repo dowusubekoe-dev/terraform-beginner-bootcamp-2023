@@ -170,7 +170,6 @@ If it is successful, you should see a json payload return that looks like this:
 ```
 We'll need to generate AWS CLI credits from IAM User in order to the user's AWS CLI.
 
-
 ## Terraform Basics
 
 ### Terraform Registry
@@ -207,7 +206,6 @@ We can output this changeset ie. "plan" to be passed to an apply, but often you 
 This will run a plan and pass the changeset to be executed by terraform. Apply should prompt us for yes or no.
 
 If we want to automatically approve, an apply we can provide the auto approve flag eg. `terraform apply --auto-approve`
-
 
 #### Terraform Destroy
 
