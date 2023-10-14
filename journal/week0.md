@@ -8,7 +8,7 @@
     + [Shebang Considerations](#shebang-considerations)
     + [Execution Considerations](#execution-considerations)
     + [Linux Permissions Considerations](#linux-permissions-considerations)
-- [Gitpod Lifecycle](#gitpod-lifecycle--before--init--command-)
+- [Gitpod Lifecycle](#gitpod-lifecycle)
 - [Working Env Vars](#working-env-vars)
   * [Env Command](#env-command)
   * [Setting and Unsetting Env Vars](#setting-and-unsetting-env-vars)
