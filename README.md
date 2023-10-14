@@ -9,5 +9,3 @@
 
 ## Extras
 - [GitHub Markdown TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
-
-
