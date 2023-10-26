@@ -1,14 +1,15 @@
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_origin_access_control
+# https://aws.amazon.com/blogs/networking-and-content-delivery/amazon-cloudfront-introduces-origin-access-control-oac/
 resource "aws_cloudfront_origin_access_control" "default" {
-  name  = "OAC ${var.bucket_name}"
-  description = "Origin Access Controls for Static Website Hosting ${var.bucket_name}"
+  name   = "OAC ${var.bucket_name}"
+  description  = "Origin Access Controls for Static Website Hosting ${var.bucket_name}"
   origin_access_control_origin_type = "s3"
-  signing_behavior                  = "always"
-  signing_protocol                  = "sigv4"
+  signing_behavior  = "always"
+  signing_protocol  = "sigv4"
 }
 
-
 locals {
-    s3_origin_id = "MyS3Origin"
+  s3_origin_id = "MyS3Origin"
 }
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/cloudfront_distribution
@@ -21,10 +22,10 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "Static website hosting for: ${var.bucket_name} "
+  comment             = "Static website hosting for: ${var.bucket_name}"
   default_root_object = "index.html"
 
-  # aliases = ["mysite.example.com", "yoursite.example.com"]
+  #aliases = ["mysite.example.com", "yoursite.example.com"]
 
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
@@ -44,7 +45,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     default_ttl            = 3600
     max_ttl                = 86400
   }
-   price_class = "PriceClass_200"
+  price_class = "PriceClass_200"
 
   restrictions {
     geo_restriction {
@@ -59,15 +60,5 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 
   viewer_certificate {
     cloudfront_default_certificate = true
-  }
-}
-
-resource "terraform_data" "invalidate_cache" {
-  triggers_replace = terraform_data.content_version.output
-
-  provisioner "local-exec" {
-    command = <<COMMAND
-      aws cloudfront create-invalidation --distribution-id ${aws_cloudfront_distribution.s3_distribution.id} --paths '/*'
-    COMMAND
   }
 }
