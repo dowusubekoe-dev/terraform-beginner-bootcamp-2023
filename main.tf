@@ -17,6 +17,5 @@ module "terrahouse_aws" {
   error_html_filepath = var.error_html_filepath
   assets_path = var.assets_path
   content_version = var.content_version
-  assets_path = var.assets_path
 }
 
